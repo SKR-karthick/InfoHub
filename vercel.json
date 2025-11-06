@@ -1,14 +1,9 @@
 {
   "version": 2,
+  "buildCommand": "cd client && npm install && npm run build",
+  "outputDirectory": "client/dist",
+  "framework": "vite",
   "builds": [
-    {
-      "src": "client/package.json",
-      "use": "@vercel/static",
-      "config": {
-        "buildCommand": "npm run build",
-        "outputDirectory": "dist"
-      }
-    },
     {
       "src": "api/*.js",
       "use": "@vercel/node"
@@ -24,7 +19,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/client/dist/$1"
+      "dest": "/$1"
     }
   ]
 }
